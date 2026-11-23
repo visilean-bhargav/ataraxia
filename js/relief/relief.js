@@ -10,7 +10,6 @@ export const MODES = [
   { id: 'breathe', name: 'Breathe', c: 'var(--peri)', w: '24%', line: 'Slow light, paced to your breath.', load: () => import('./breathe.js') },
 ];
 
-const READY = ['break', 'flow'];
 const fast = new URLSearchParams(location.search).has('fast');   // shortens the waits, for demonstrating
 const STEP_AFTER = fast ? 8 : 75, LAND_AFTER = fast ? 4 : 20;
 
@@ -23,7 +22,7 @@ export function renderPicker(view) {
     h('h1', { class: 'h', style: 'margin-top:6px' }, 'From release to rest'),
     h('p', { class: 'sub' }, 'Touch first sensory play. Start wherever you are.'),
     h('div', { class: 'scale' }, h('span', null, 'release'), h('span', null, 'rest')),
-    h('div', { class: 'modes' }, MODES.filter(m => READY.includes(m.id)).map(m =>
+    h('div', { class: 'modes' }, MODES.map(m =>
       h('a', { class: 'mode', href: '#/relief/' + m.id, style: `--c:${m.c};--w:${m.w}` },
         h('span', { class: 'bar' }), h('h3', null, m.name), h('p', null, m.line)))),
     h('p', { class: 'quiet center', style: 'margin-top:16px' }, 'A longer bar asks for more energy. Sound on every mode.'),
@@ -36,9 +35,9 @@ const ICON_OFF = '<svg viewBox="0 0 24 24"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5
 
 export function renderStage(view, id, { tap = false } = {}) {
   const mode = MODES.find(m => m.id === id);
-  if (!mode || !READY.includes(id)) { location.hash = '#/relief'; return; }
+  if (!mode) { location.hash = '#/relief'; return; }
   if (!session) session = { secs: {} };
-  const idx = MODES.indexOf(mode), slower = MODES.slice(idx + 1).find(m => READY.includes(m.id));
+  const idx = MODES.indexOf(mode), slower = MODES[idx + 1];
 
   const stage = h('div', { class: 'stage' });
   const hint = h('div', { class: 'hint' });
