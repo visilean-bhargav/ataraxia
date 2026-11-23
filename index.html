@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Ataraxia</title>
+<meta name="description" content="Take a breath. Nothing is wrong.">
+<meta name="theme-color" content="#0e2328">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ataraxia">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fonts/nunito-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nunito-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+  <main id="view"></main>
+  <nav id="tabs" aria-label="Sections">
+    <a href="#/relief" data-tab="relief" style="--c:var(--pink)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.8" opacity=".55"/></svg>
+      <span>Relief</span></a>
+    <a href="#/learn" data-tab="learn" style="--c:var(--sand)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5c2.8-1 5.4-.8 8 .9 2.6-1.7 5.2-1.9 8-.9v11c-2.8-1-5.4-.8-8 .9-2.6-1.7-5.2-1.9-8-.9z"/><path d="M12 7.4v11"/></svg>
+      <span>Learn</span></a>
+    <a href="#/talk" data-tab="talk" style="--c:var(--aqua)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5.5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-6.5L8 20v-3.5H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z"/></svg>
+      <span>Talk</span></a>
+    <a href="#/journal" data-tab="journal" style="--c:var(--peri)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9c2.5-2 4.5-2 6 0s3.5 2 6 0 4.5-2 6 0"/><path d="M3 15c2.5-2 4.5-2 6 0s3.5 2 6 0 4.5-2 6 0"/></svg>
+      <span>Journal</span></a>
+  </nav>
+  <div id="overlay"></div>
+</div>
+<!-- iOS haptic tick: toggling a switch-style checkbox through its label gives a system haptic on recent iOS -->
+<label id="hx" aria-hidden="true"><input type="checkbox" switch tabindex="-1"></label>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
